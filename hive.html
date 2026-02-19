@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Hive | Sami Sairiala</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 980px; margin: 40px auto; padding: 0 16px; line-height: 1.55; }
+    a { text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .top { display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; }
+    .links a { margin-right: 12px; }
+    .hero { border:1px solid #ddd; border-radius:16px; padding:18px; margin-top:18px; }
+    .meta { font-size: 13px; color:#444; margin: 6px 0 0; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 16px; }
+    .card { border:1px solid #ddd; border-radius:14px; padding:16px; }
+    h1,h2,h3 { margin: 0 0 10px; }
+    h2 { margin-top: 26px; }
+    ul { margin: 8px 0 0 18px; padding: 0; }
+    .tag { display:inline-block; border:1px solid #ddd; border-radius:999px; padding:4px 10px; margin:8px 6px 0 0; font-size:12px; }
+    .small { font-size: 13px; color:#333; }
+    .muted { color:#555; }
+    .imgph {
+      margin-top: 10px;
+      border: 1px dashed #bbb;
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 13px;
+      color:#555;
+      background: #fafafa;
+    }
+    .btnrow a { display:inline-block; margin: 10px 10px 0 0; font-size: 13px; }
+  </style>
+</head>
+<body>
+
+  <div class="top">
+    <div>
+      <h1 style="margin:0;">The Hive</h1>
+      <p class="meta">Strategy • Steam (live title) • Unity • Programmer</p>
+    </div>
+    <div class="links">
+      <a href="index.html">← Back to Portfolio</a>
+      <a href="https://store.steampowered.com/app/325730/The_Hive/">Steam Page</a>
+      <a href="mailto:sami.sairiala@gmail.com">Email</a>
+      <a href="https://github.com/SamiSairiala">GitHub</a>
+      <a href="https://www.linkedin.com/in/sami-sairiala-2bb521192/">LinkedIn</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <h2 style="margin-top:0;">Overview</h2>
+    <p class="small" style="margin:0;">
+      <b>The Hive</b> is a strategy game on Steam that shipped before I joined the team.
+      I worked on <b>post-release patching/hotfixes</b>, <b>save/load reliability</b>, and <b>DLC feature work</b>
+      (including a survival-focused mode with persistent units and equipment).
+    </p>
+
+    <div class="imgph">
+      <b>Media placeholder:</b> Add a screenshot/GIF later (e.g., control group UI, tooltip UI, survival mode, autosave UI).
+    </div>
+
+    <div>
+      <span class="tag">Unity</span>
+      <span class="tag">C#</span>
+      <span class="tag">Live Ops</span>
+      <span class="tag">Save/Load</span>
+      <span class="tag">UI</span>
+      <span class="tag">Gameplay</span>
+    </div>
+  </div>
+
+  <h2>What I shipped / fixed</h2>
+  <div class="grid">
+
+    <div class="card">
+      <h3>Autosave & save/load reliability</h3>
+      <ul>
+        <li>Implemented autosave with anti-spam and cutscene safety checks</li>
+        <li>Integrated autosave triggers into cutscenes and objective completion</li>
+        <li>Fixed save/load issues (e.g., starter units not saving, disappearing units, difficulty not restoring correctly)</li>
+        <li>Updated save/load UI to clearly separate manual saves, quick saves, and auto saves</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>DLC Survival mode persistence</h3>
+      <ul>
+        <li>Implemented DLC Survival mode features where units persist between levels</li>
+        <li>Persisted unit equipment and inventory state across levels and sessions</li>
+        <li>Ensured mode rules integrate cleanly with existing save/load flows</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Unit selection + control groups UI</h3>
+      <ul>
+        <li>Added Group Selection UI and improved control group HUD behavior</li>
+        <li>Fixed edge cases in rapid double-click selection (unit isolation vs group selection)</li>
+        <li>Improved group counts and live updates (including resurrected units)</li>
+        <li>Added inventory button pulse when new items are received</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Tooltip system + UI clarity</h3>
+      <ul>
+        <li>Implemented unit tooltip templates and formatting (token replacement like {DMG}, {HP}, {DEF}, etc.)</li>
+        <li>Exposed attack/defence tooltip messages on units and wired into HUD</li>
+        <li>Improved tooltip positioning: pivot adjustment + clamping within UI bounds</li>
+        <li>Added tooltip messages across inventory/resource UI for better player guidance</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>UI prefabs and resource popups</h3>
+      <ul>
+        <li>Added Resource Popup UI and supporting scripts (pickup feedback)</li>
+        <li>Updated Item/Resource UI to include additional resource icons</li>
+        <li>Normalized prefab serialization and updated renderer/particle settings across assets</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Tutorial system improvements</h3>
+      <ul>
+        <li>Introduced TutorialManager prefab and updated scene integration</li>
+        <li>Added multi-page tutorial panels with keyboard navigation</li>
+        <li>Added runtime tutorial reset (command line flag + hotkey) for testing</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <h2>Tools and tech</h2>
+  <div class="card">
+    <ul>
+      <li><b>Engine:</b> Unity</li>
+      <li><b>Language:</b> C#</li>
+      <li><b>Work type:</b> live patching/hotfixes, DLC development, UI systems, persistence fixes</li>
+    </ul>
+  </div>
+
+  <div class="btnrow">
+    <a href="index.html">← Back to Portfolio</a>
+    <a href="https://store.steampowered.com/app/325730/The_Hive/">Steam Page</a>
+  </div>
+
+</body>
+</html>
