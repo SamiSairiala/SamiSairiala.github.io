@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abyssian | Sami Sairiala</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 980px; margin: 40px auto; padding: 0 16px; line-height: 1.55; }
+    a { text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .top { display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; }
+    .links a { margin-right: 12px; }
+    .hero { border:1px solid #ddd; border-radius:16px; padding:18px; margin-top:18px; }
+    .meta { font-size: 13px; color:#444; margin: 6px 0 0; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 16px; }
+    .card { border:1px solid #ddd; border-radius:14px; padding:16px; }
+    h1,h2,h3 { margin: 0 0 10px; }
+    h2 { margin-top: 26px; }
+    ul { margin: 8px 0 0 18px; padding: 0; }
+    .tag { display:inline-block; border:1px solid #ddd; border-radius:999px; padding:4px 10px; margin:8px 6px 0 0; font-size:12px; }
+    .small { font-size: 13px; color:#333; }
+    .muted { color:#555; }
+    .imgph {
+      margin-top: 10px;
+      border: 1px dashed #bbb;
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 13px;
+      color:#555;
+      background: #fafafa;
+    }
+    .btnrow a { display:inline-block; margin: 10px 10px 0 0; font-size: 13px; }
+    .callout { background:#f6f7f8; border:1px solid #e2e3e5; border-radius:14px; padding:14px; margin-top:12px; }
+  </style>
+</head>
+<body>
+
+  <div class="top">
+    <div>
+      <h1 style="margin:0;">Abyssian</h1>
+      <p class="meta">JRPG • 2.5D • Unity • Lead Programmer (systems/gameplay)</p>
+    </div>
+    <div class="links">
+      <a href="index.html">← Back to Portfolio</a>
+      <a href="mailto:sami.sairiala@gmail.com">Email</a>
+      <a href="https://github.com/SamiSairiala">GitHub</a>
+      <a href="https://www.linkedin.com/in/sami-sairiala-2bb521192/">LinkedIn</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <h2 style="margin-top:0;">Overview</h2>
+    <p class="small" style="margin:0;">
+      <b>Abyssian</b> is an upcoming 2.5D JRPG built in Unity. I worked as a <b>Lead Programmer</b> on gameplay and core systems,
+      building features that connect combat, progression, and exploration (combat flow, persistence, equipment effects, and map UI).
+    </p>
+
+    <div class="imgph">
+      <b>Media placeholder:</b> Add a gameplay screenshot/GIF here later (e.g., combat UI, overworld, map/minimap).
+    </div>
+
+    <div>
+      <span class="tag">Unity</span>
+      <span class="tag">C#</span>
+      <span class="tag">Gameplay Systems</span>
+      <span class="tag">Save/Load</span>
+      <span class="tag">Combat</span>
+      <span class="tag">UI</span>
+    </div>
+  </div>
+
+  <h2>Combat system</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Token / status system</h3>
+      <p class="small" style="margin:0;">
+        Designed and implemented a token/status system that drives combat flow and interacts with turn order, stats, and abilities.
+      </p>
+      <ul>
+        <li>Tokens influence turn order calculations and stat evaluation during combat</li>
+        <li>Applied to both player and enemy flow for predictable but flexible interactions</li>
+        <li>Supports combat readability via clear state changes and consistent rules</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>AI logic and targeting</h3>
+      <p class="small" style="margin:0;">
+        Implemented boss logic and targeting behavior to make encounters feel distinct and reactive.
+      </p>
+      <ul>
+        <li>Boss AI logic tied into combat state (tokens, turn order, current threats)</li>
+        <li>Targeting rules that respond to party state and status effects</li>
+        <li>Combat decisions designed to be understandable and tuneable</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Save/load and persistence</h2>
+  <div class="card">
+    <p class="small" style="margin:0;">
+      Built save/load for the full game, designed for overworld progression and persistent state across scenes.
+    </p>
+    <ul>
+      <li>Overworld saving including player position, party state, inventory, equipment, and stats</li>
+      <li>Supports progression data such as quests/objectives and game state changes</li>
+      <li>Designed to load reliably across scene transitions and long play sessions</li>
+    </ul>
+
+    <div class="callout small">
+      <b>What this enables:</b> stable long-term saves, consistent state after reload, and a foundation for autosaves/slots.
+    </div>
+  </div>
+
+  <h2>Equipment system</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Two-slot equipment with modifiers</h3>
+      <p class="small" style="margin:0;">
+        Implemented a character equipment system with two slots and item-driven modifiers (positive and negative).
+      </p>
+      <ul>
+        <li>Items modify stats directly through clear modifiers</li>
+        <li>Supports tradeoffs (power vs drawbacks) to shape builds and party strategy</li>
+        <li>Designed to be extendable as item variety grows</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Keyword-driven interactions</h3>
+      <p class="small" style="margin:0;">
+        Some equipment affects combat rules via keywords, including interactions with tokens/status effects.
+      </p>
+      <ul>
+        <li>Example: bonus damage or altered behavior against specific states (e.g., stunned)</li>
+        <li>Rules are consistent and easy to tune during balance passes</li>
+        <li>Creates build identity beyond raw stat increases</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Map systems</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>World map progression</h3>
+      <p class="small" style="margin:0;">
+        Built a world map system that unlocks as the player progresses through the game.
+      </p>
+      <ul>
+        <li>Progress-based unlocking to support exploration pacing</li>
+        <li>UI integration designed for clarity and quick navigation</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Minimap + objectives</h3>
+      <p class="small" style="margin:0;">
+        Implemented minimap functionality to support navigation and highlight quest objectives.
+      </p>
+      <ul>
+        <li>Objective indicators to reduce friction and improve player guidance</li>
+        <li>Designed to be easy to extend for new quest/objective types</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Tools and tech</h2>
+  <div class="card">
+    <ul>
+      <li><b>Engine:</b> Unity</li>
+      <li><b>Language:</b> C#</li>
+      <li><b>Data:</b> JSON-based save/load & persistence</li>
+      <li><b>Focus areas:</b> gameplay systems, combat, AI, UI integration, world/map systems</li>
+    </ul>
+  </div>
+
+  <div class="btnrow">
+    <a href="index.html">← Back to Portfolio</a>
+  </div>
+
+</body>
+</html>
