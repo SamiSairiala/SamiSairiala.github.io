@@ -12,7 +12,6 @@
       --cardbg: rgba(255,255,255,0.92);
     }
 
-    /* Subtle "code" background */
     body {
       font-family: Arial, sans-serif;
       max-width: 980px;
@@ -21,13 +20,14 @@
       line-height: 1.55;
       color: var(--text);
 
-      background:
-        radial-gradient(1200px 600px at 20% -10%, rgba(0,0,0,0.06), transparent 60%),
-        radial-gradient(1000px 600px at 100% 0%, rgba(0,0,0,0.04), transparent 55%),
+      background-color: #f6f7fb;
+      background-image:
+        radial-gradient(1200px 600px at 20% -10%, rgba(0,0,0,0.10), transparent 60%),
+        radial-gradient(1000px 600px at 100% 0%, rgba(0,0,0,0.08), transparent 55%),
         repeating-linear-gradient(
           0deg,
-          rgba(0,0,0,0.035) 0px,
-          rgba(0,0,0,0.035) 1px,
+          rgba(0,0,0,0.06) 0px,
+          rgba(0,0,0,0.06) 1px,
           transparent 1px,
           transparent 26px
         );
@@ -70,6 +70,7 @@
     <div>
       <h1 style="margin:0;">Sami Sairiala</h1>
       <p style="margin:6px 0 0;">Game Programmer (Unity/C#) — gameplay &amp; systems (combat, save/load, UI, maps)</p>
+      <p class="small" style="margin:4px 0 0; color:#444;">Open to relocation and remote roles.</p>
     </div>
     <div class="links">
       <a href="assets/Sami_Sairiala_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
