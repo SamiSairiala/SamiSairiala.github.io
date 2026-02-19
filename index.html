@@ -8,10 +8,16 @@
     :root{
       --text:#111;
       --muted:#444;
-      --border:#ddd;
-      --cardbg: rgba(255,255,255,0.92);
+      --border: rgba(0,0,0,0.10);
+      --cardbg: rgba(255,255,255,0.90);
+
+      /* Option A accent palette */
+      --accent:#4f46e5;   /* indigo */
+      --accent2:#06b6d4;  /* cyan */
+      --accent3:#10b981;  /* green */
     }
 
+    /* More interesting background (soft colorful blobs) */
     body {
       font-family: Arial, sans-serif;
       max-width: 980px;
@@ -20,25 +26,34 @@
       line-height: 1.55;
       color: var(--text);
 
-      background-color: #f6f7fb;
-      background-image:
-        radial-gradient(1200px 600px at 20% -10%, rgba(0,0,0,0.10), transparent 60%),
-        radial-gradient(1000px 600px at 100% 0%, rgba(0,0,0,0.08), transparent 55%),
-        repeating-linear-gradient(
-          0deg,
-          rgba(0,0,0,0.06) 0px,
-          rgba(0,0,0,0.06) 1px,
-          transparent 1px,
-          transparent 26px
-        );
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(79,70,229,0.18), transparent 60%),
+        radial-gradient(900px 600px at 100% 0%, rgba(6,182,212,0.14), transparent 55%),
+        radial-gradient(900px 600px at 0% 110%, rgba(16,185,129,0.10), transparent 60%),
+        #f6f7fb;
       background-attachment: fixed;
     }
 
+    /* Accent links */
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
     .top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
-    .links a { margin-right: 12px; text-decoration: none; }
-    .links a:hover { text-decoration: underline; }
+    .links a { margin-right: 12px; }
 
     .section { margin-top: 26px; }
+
+    /* Colored/pill section headers */
+    .section-title{
+      display:inline-block;
+      margin: 0 0 10px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(79,70,229,0.12), rgba(6,182,212,0.10));
+      border: 1px solid rgba(0,0,0,0.08);
+      font-size: 18px;
+      letter-spacing: 0.2px;
+    }
 
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; margin-top: 16px; }
 
@@ -47,28 +62,37 @@
       border-radius: 12px;
       padding: 16px;
       background: var(--cardbg);
-      backdrop-filter: blur(2px);
+      backdrop-filter: blur(3px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
     }
 
     .card h3 { margin: 0 0 8px; }
     .meta { font-size: 13px; color: var(--muted); margin: 0 0 10px; }
     ul { margin: 8px 0 0 18px; padding: 0; }
 
-    .tag { display: inline-block; border: 1px solid var(--border); border-radius: 999px; padding: 4px 10px; margin: 8px 6px 0 0; font-size: 12px; background: rgba(255,255,255,0.6); }
+    .tag {
+      display: inline-block;
+      border: 1px solid rgba(0,0,0,0.10);
+      border-radius: 999px;
+      padding: 4px 10px;
+      margin: 8px 6px 0 0;
+      font-size: 12px;
+      background: rgba(255,255,255,0.55);
+    }
 
     .btnrow a { display:inline-block; margin: 10px 10px 0 0; font-size: 13px; }
 
     .small { font-size: 13px; color: #333; }
 
     /* nicer header spacing */
-    h1,h2 { letter-spacing: 0.2px; }
+    h1 { letter-spacing: 0.2px; margin:0; }
   </style>
 </head>
 
 <body>
   <div class="top">
     <div>
-      <h1 style="margin:0;">Sami Sairiala</h1>
+      <h1>Sami Sairiala</h1>
       <p style="margin:6px 0 0;">Game Programmer (Unity/C#) — gameplay &amp; systems (combat, save/load, UI, maps)</p>
       <p class="small" style="margin:4px 0 0; color:#444;">Open to relocation and remote roles.</p>
     </div>
@@ -80,7 +104,7 @@
   </div>
 
   <div class="section">
-    <h2 style="margin-bottom:6px;">Background</h2>
+    <h2 class="section-title">Background</h2>
     <div class="card">
       <p class="small" style="margin:0;">
         I’m a Unity/C# game programmer based in Finland. I worked at Skydome Entertainment (Feb 2024–Feb 2026)
@@ -92,7 +116,7 @@
   </div>
 
   <div class="section">
-    <h2 style="margin-bottom:6px;">Skills</h2>
+    <h2 class="section-title">Skills</h2>
     <div class="grid">
       <div class="card">
         <h3>Languages</h3>
@@ -128,7 +152,7 @@
   </div>
 
   <div class="section">
-    <h2 style="margin-bottom:6px;">Featured Projects</h2>
+    <h2 class="section-title">Featured Projects</h2>
     <p class="small" style="margin-top:0;">
       Shipped and notable work. Click “Details” for deeper breakdowns.
     </p>
@@ -218,7 +242,7 @@
   </div>
 
   <div class="section">
-    <h2>Contact</h2>
+    <h2 class="section-title">Contact</h2>
     <div class="card">
       <p class="small" style="margin:0;">
         Email: <a href="mailto:sami.sairiala@gmail.com">sami.sairiala@gmail.com</a>
