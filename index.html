@@ -5,31 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sami Sairiala | Game Programmer</title>
   <style>
-    body { font-family: Arial, sans-serif; max-width: 980px; margin: 40px auto; padding: 0 16px; line-height: 1.55; }
+    :root{
+      --text:#111;
+      --muted:#444;
+      --border:#ddd;
+      --cardbg: rgba(255,255,255,0.92);
+    }
+
+    /* Subtle "code" background */
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 980px;
+      margin: 40px auto;
+      padding: 0 16px;
+      line-height: 1.55;
+      color: var(--text);
+
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(0,0,0,0.06), transparent 60%),
+        radial-gradient(1000px 600px at 100% 0%, rgba(0,0,0,0.04), transparent 55%),
+        repeating-linear-gradient(
+          0deg,
+          rgba(0,0,0,0.035) 0px,
+          rgba(0,0,0,0.035) 1px,
+          transparent 1px,
+          transparent 26px
+        );
+      background-attachment: fixed;
+    }
+
     .top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
     .links a { margin-right: 12px; text-decoration: none; }
     .links a:hover { text-decoration: underline; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; margin-top: 16px; }
-    .card { border: 1px solid #ddd; border-radius: 12px; padding: 16px; }
-    .card h3 { margin: 0 0 8px; }
-    .meta { font-size: 13px; color: #444; margin: 0 0 10px; }
-    ul { margin: 8px 0 0 18px; padding: 0; }
-    .tag { display: inline-block; border: 1px solid #ddd; border-radius: 999px; padding: 4px 10px; margin: 8px 6px 0 0; font-size: 12px; }
-    .btnrow a { display:inline-block; margin: 10px 10px 0 0; font-size: 13px; }
+
     .section { margin-top: 26px; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; margin-top: 16px; }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      background: var(--cardbg);
+      backdrop-filter: blur(2px);
+    }
+
+    .card h3 { margin: 0 0 8px; }
+    .meta { font-size: 13px; color: var(--muted); margin: 0 0 10px; }
+    ul { margin: 8px 0 0 18px; padding: 0; }
+
+    .tag { display: inline-block; border: 1px solid var(--border); border-radius: 999px; padding: 4px 10px; margin: 8px 6px 0 0; font-size: 12px; background: rgba(255,255,255,0.6); }
+
+    .btnrow a { display:inline-block; margin: 10px 10px 0 0; font-size: 13px; }
+
     .small { font-size: 13px; color: #333; }
+
+    /* nicer header spacing */
+    h1,h2 { letter-spacing: 0.2px; }
   </style>
 </head>
+
 <body>
   <div class="top">
     <div>
       <h1 style="margin:0;">Sami Sairiala</h1>
-      <p style="margin:6px 0 0;">Game Programmer (Unity/C#) — gameplay & systems (combat, save/load, UI, maps)</p>
+      <p style="margin:6px 0 0;">Game Programmer (Unity/C#) — gameplay &amp; systems (combat, save/load, UI, maps)</p>
     </div>
     <div class="links">
       <a href="assets/Sami_Sairiala_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
-      <a href="https://github.com/SamiSairiala">GitHub</a>
+      <a href="https://github.com/SamiSairiala" target="_blank" rel="noopener">GitHub</a>
       <a href="mailto:sami.sairiala@gmail.com">Email</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 style="margin-bottom:6px;">Background</h2>
+    <div class="card">
+      <p class="small" style="margin:0;">
+        I’m a Unity/C# game programmer based in Finland. I worked at Skydome Entertainment (Feb 2024–Feb 2026)
+        on a live strategy title (The Hive) and an upcoming 2.5D JRPG (Abyssian). I enjoy building gameplay systems
+        like combat logic, persistence/save-load, UI tools, and map features. I graduated from TAMK (Tampere University
+        of Applied Sciences) in Dec 2025.
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 style="margin-bottom:6px;">Skills</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Languages</h3>
+        <ul>
+          <li>C#</li>
+          <li>C++</li>
+          <li>Java</li>
+          <li>Python</li>
+          <li>SQL</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Engines &amp; Tools</h3>
+        <ul>
+          <li>Unity</li>
+          <li>Unreal Engine (foundational)</li>
+          <li>Git / GitHub</li>
+          <li>JSON serialization</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Focus Areas</h3>
+        <ul>
+          <li>Gameplay &amp; systems programming</li>
+          <li>Turn-based combat, AI &amp; encounter logic</li>
+          <li>Save/load, persistence &amp; progression systems</li>
+          <li>UI systems, tooling, and map features</li>
+        </ul>
+      </div>
     </div>
   </div>
 
@@ -46,7 +139,7 @@
         <p class="meta">Skydome Entertainment • 2.5D RPG</p>
         <ul>
           <li>Turn-based combat + token/status effect mechanics</li>
-          <li>Save/load & persistence (slots + autosaves, scene/object state)</li>
+          <li>Save/load &amp; persistence (slots + autosaves, scene/object state)</li>
           <li>Equipment system (2 slots, keyword-driven effects) + minimap/world map UI</li>
         </ul>
         <div>
@@ -54,6 +147,7 @@
         </div>
         <div class="btnrow">
           <a href="abyssian.html">Details</a>
+          <a href="https://github.com/SamiSairiala/showcode/tree/main/Abyssian" target="_blank" rel="noopener">Code</a>
         </div>
       </div>
 
@@ -70,7 +164,8 @@
         </div>
         <div class="btnrow">
           <a href="hive.html">Details</a>
-          <a href="https://store.steampowered.com/app/325730/The_Hive/">Steam Page</a>
+          <a href="https://github.com/SamiSairiala/showcode/tree/main/Hive" target="_blank" rel="noopener">Code</a>
+          <a href="https://store.steampowered.com/app/325730/The_Hive/" target="_blank" rel="noopener">Steam Page</a>
         </div>
       </div>
 
@@ -98,7 +193,7 @@
           <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Gameplay</span><span class="tag">AI</span>
         </div>
         <div class="btnrow">
-          <a href="https://store.steampowered.com/app/1252030/Steel__Bone/?l=finnish">Steam Page</a>
+          <a href="https://store.steampowered.com/app/1252030/Steel__Bone/?l=finnish" target="_blank" rel="noopener">Steam Page</a>
         </div>
       </div>
 
@@ -113,7 +208,7 @@
           <span class="tag">Unity</span><span class="tag">AI</span><span class="tag">Gameplay</span>
         </div>
         <div class="btnrow">
-          <a href="https://bafoonn.itch.io/culinary-carnage">Itch.io page</a>
+          <a href="https://bafoonn.itch.io/culinary-carnage" target="_blank" rel="noopener">Itch.io page</a>
           <a href="https://github.com/SamiSairiala/showcode/tree/main/CulinaryCarnage" target="_blank" rel="noopener">Code</a>
         </div>
       </div>
@@ -122,15 +217,13 @@
   </div>
 
   <div class="section">
-    <h2>Skills</h2>
-    <p class="small">
-      Unity/C#, gameplay &amp; systems programming, Git workflows. Languages: C#, Java, Python, SQL.
-    </p>
+    <h2>Contact</h2>
+    <div class="card">
+      <p class="small" style="margin:0;">
+        Email: <a href="mailto:sami.sairiala@gmail.com">sami.sairiala@gmail.com</a>
+      </p>
+    </div>
   </div>
 
-  <div class="section">
-    <h2>Contact</h2>
-    <p class="small">Email: <a href="mailto:sami.sairiala@gmail.com">sami.sairiala@gmail.com</a></p>
-  </div>
 </body>
 </html>
