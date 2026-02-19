@@ -5,19 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sami Sairiala | Game Programmer</title>
   <style>
-    body { font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 16px; line-height: 1.5; }
+    body { font-family: Arial, sans-serif; max-width: 980px; margin: 40px auto; padding: 0 16px; line-height: 1.55; }
     .top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
-    .links a { margin-right: 12px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 20px; }
+    .links a { margin-right: 12px; text-decoration: none; }
+    .links a:hover { text-decoration: underline; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; margin-top: 16px; }
     .card { border: 1px solid #ddd; border-radius: 12px; padding: 16px; }
-    .tag { display: inline-block; border: 1px solid #ddd; border-radius: 999px; padding: 4px 10px; margin: 6px 6px 0 0; font-size: 12px; }
+    .card h3 { margin: 0 0 8px; }
+    .meta { font-size: 13px; color: #444; margin: 0 0 10px; }
+    ul { margin: 8px 0 0 18px; padding: 0; }
+    .tag { display: inline-block; border: 1px solid #ddd; border-radius: 999px; padding: 4px 10px; margin: 8px 6px 0 0; font-size: 12px; }
+    .btnrow a { display:inline-block; margin: 10px 10px 0 0; font-size: 13px; }
+    .section { margin-top: 26px; }
+    .small { font-size: 13px; color: #333; }
   </style>
 </head>
 <body>
   <div class="top">
     <div>
       <h1 style="margin:0;">Sami Sairiala</h1>
-      <p style="margin:6px 0 0;">Game Programmer (Unity/C#) — combat, save/load, UI, maps</p>
+      <p style="margin:6px 0 0;">Game Programmer (Unity/C#) — combat, save/load & persistence, UI, maps, gameplay systems</p>
     </div>
     <div class="links">
       <a href="https://github.com/SamiSairiala">GitHub</a>
@@ -27,46 +34,108 @@
     </div>
   </div>
 
-  <h2>Featured Projects</h2>
-  <div class="grid">
-    <div class="card">
-      <h3 style="margin-top:0;">The Hive (Steam) — Programmer</h3>
-      <ul>
-        <li>Post-release fixes and system improvements</li>
-        <li>DLC feature implementation and content integration</li>
-        <li>Autosaving and group selection UI</li>
-      </ul>
-      <div>
-        <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Live Ops</span>
-      </div>
-    </div>
+  <div class="section">
+    <h2 style="margin-bottom:6px;">Featured Projects</h2>
+    <p class="small" style="margin-top:0;">
+      A selection of shipped and notable work. For each project: role, contribution highlights, and links.
+    </p>
 
-    <div class="card">
-      <h3 style="margin-top:0;">Abyssian (Upcoming) — Programmer</h3>
-      <ul>
-        <li>Turn-based combat + token/status mechanics</li>
-        <li>Save/load + scene persistence</li>
-        <li>Equipment system (2 slots, keyword-driven effects)</li>
-      </ul>
-      <div>
-        <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Systems</span>
-      </div>
-    </div>
+    <div class="grid">
 
-    <div class="card">
-      <h3 style="margin-top:0;">2D Top-Down Roguelike (itch.io)</h3>
-      <ul>
-        <li>Enemy & boss AI (FSM)</li>
-        <li>Ability system for enemies/bosses</li>
-        <li>Published on itch.io</li>
-      </ul>
-      <div>
-        <span class="tag">Unity</span><span class="tag">AI</span><span class="tag">Gameplay</span>
+      <div class="card">
+        <h3>The Hive (Steam) — Programmer</h3>
+        <p class="meta">Skydome Entertainment • Live title • Post-release + DLC</p>
+        <ul>
+          <li>Post-release fixes and stability/UX improvements across gameplay and UI systems</li>
+          <li>DLC implementation: integrated new content and mechanics into existing systems</li>
+          <li>Added major QoL features including autosaving and group selection UI</li>
+        </ul>
+        <div>
+          <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Live Ops</span><span class="tag">UI</span>
+        </div>
+        <div class="btnrow">
+          <a href="https://store.steampowered.com/app/325730/The_Hive/">Steam Page</a>
+        </div>
       </div>
+
+      <div class="card">
+        <h3>Abyssian (Upcoming) — Programmer</h3>
+        <p class="meta">Skydome Entertainment • 2.5D RPG</p>
+        <ul>
+          <li>Turn-based combat systems and token/status effect mechanics</li>
+          <li>Save/load + persistence (scene/object state, save slots/autosaves)</li>
+          <li>Map features including world map/minimap systems and UI integration</li>
+          <li>Equipment system: two item slots per character; keyword-driven effects modifying stats and token behavior</li>
+        </ul>
+        <div>
+          <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Combat</span><span class="tag">Save/Load</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Museum Mayhem (Google Play) — Programmer</h3>
+        <p class="meta">Client work • Tampere Art Museum • Point-and-click puzzle game</p>
+        <ul>
+          <li>Designed and implemented puzzles and puzzle logic</li>
+          <li>Implemented movement/navigation between rooms (point-and-click transitions)</li>
+          <li>Delivered a mobile release in collaboration with the museum</li>
+        </ul>
+        <p class="small" style="margin-top:10px;">
+          <b>Pitch:</b> A mystery is brewing inside the Tampere Art Museum. Art is disappearing and the exhibition is in mayhem.
+          Can you solve the mystery before the guests arrive?
+        </p>
+        <p class="small" style="margin-top:10px;">
+          <b>EN (translated):</b> The Museum Mayhem mobile game is now available on the Google Play Store. The game was created
+          in collaboration with the Tampere Art Museum and the VIRMA project, which promotes virtual tourism.
+        </p>
+        <div>
+          <span class="tag">Unity</span><span class="tag">Mobile</span><span class="tag">Puzzles</span><span class="tag">UI</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Steel &amp; Bone (Steam) — Co-Code Lead</h3>
+        <p class="meta">Ahlman Game Programming Course • First shipped project</p>
+        <ul>
+          <li>Co-code lead; contributed across core gameplay systems</li>
+          <li>Worked on player movement, skills, animations integration, and enemy AI</li>
+          <li>Contributed to level design support and implementation</li>
+        </ul>
+        <div>
+          <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Gameplay</span><span class="tag">AI</span>
+        </div>
+        <div class="btnrow">
+          <a href="https://store.steampowered.com/app/1252030/Steel__Bone/?l=finnish">Steam Page</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>2D Top-Down Roguelike (itch.io)</h3>
+        <p class="meta">TAMK course project • Released</p>
+        <ul>
+          <li>Enemy &amp; boss AI (FSM-style behavior)</li>
+          <li>Enemy/boss ability system to improve combat variety and balance</li>
+          <li>Published on itch.io</li>
+        </ul>
+        <div>
+          <span class="tag">Unity</span><span class="tag">AI</span><span class="tag">Gameplay</span>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <h2>Skills</h2>
-  <p>Unity/C#, Git, gameplay systems, save/load & persistence, UI. Languages: C#, Java, Python, SQL.</p>
+  <div class="section">
+    <h2>Skills</h2>
+    <p class="small">
+      Unity/C#, gameplay &amp; systems programming (combat, save/load, UI), Git workflows.
+      Languages: C#, Java, Python, SQL.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Contact</h2>
+    <p class="small">Email: <a href="mailto:sami.sairiala@gmail.com">sami.sairiala@gmail.com</a></p>
+  </div>
 </body>
 </html>
