@@ -8,77 +8,63 @@
     body { font-family: Arial, sans-serif; max-width: 980px; margin: 40px auto; padding: 0 16px; line-height: 1.55; }
     a { text-decoration: none; }
     a:hover { text-decoration: underline; }
-
     .top { display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; }
     .links a { margin-right: 12px; }
     .hero { border:1px solid #ddd; border-radius:16px; padding:18px; margin-top:18px; }
     .meta { font-size: 13px; color:#444; margin: 6px 0 0; }
-
     .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 16px; }
-    .card { border:1px solid #ddd; border-radius:14px; padding:16px; background:#fff; }
-
+    .card { border:1px solid #ddd; border-radius:14px; padding:16px; }
     h1,h2,h3 { margin: 0 0 10px; }
     h2 { margin-top: 26px; }
-
     ul { margin: 8px 0 0 18px; padding: 0; }
     .tag { display:inline-block; border:1px solid #ddd; border-radius:999px; padding:4px 10px; margin:8px 6px 0 0; font-size:12px; }
-
     .small { font-size: 13px; color:#333; }
     .muted { color:#555; }
-
     .btnrow a { display:inline-block; margin: 10px 10px 0 0; font-size: 13px; }
 
-    /* Images */
-    .img {
-      width:100%;
-      border:1px solid #ddd;
-      border-radius:12px;
-      display:block;
-      background:#fff;
+    /* Clickable images */
+    .img-click {
       cursor: zoom-in;
-      transition: transform .08s ease;
+      transition: transform 120ms ease;
     }
-    .img:hover { transform: translateY(-1px); }
+    .img-click:hover { transform: translateY(-1px); }
 
-    /* Hero image sizing (smaller) */
-    .heroimg {
-      max-height: 360px;
-      object-fit: cover;
-    }
-
-    /* Lightbox overlay */
+    /* Lightbox */
     .lightbox {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.72);
+      background: rgba(0,0,0,0.82);
       display: none;
       align-items: center;
       justify-content: center;
       padding: 24px;
       z-index: 9999;
     }
-    .lightbox.open { display: flex; }
-    .lightbox img {
-      max-width: min(1100px, 96vw);
-      max-height: 92vh;
-      border-radius: 12px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.45);
-      cursor: default;
-      background:#111;
+    .lightbox.is-open { display: flex; }
+    .lightbox-inner {
+      max-width: min(1200px, 95vw);
+      max-height: 90vh;
     }
-    .lightbox .hint {
+    .lightbox-inner img {
+      width: 100%;
+      height: auto;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 18px 70px rgba(0,0,0,0.45);
+      cursor: default;
+      background: rgba(255,255,255,0.02);
+    }
+    .lightbox-hint{
       position: fixed;
-      bottom: 18px;
+      bottom: 16px;
       left: 50%;
       transform: translateX(-50%);
-      color: rgba(255,255,255,0.85);
+      color: rgba(255,255,255,0.8);
       font-size: 12px;
+      font-family: Arial, sans-serif;
       user-select: none;
-      text-align: center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(0,0,0,0.35);
-      border: 1px solid rgba(255,255,255,0.12);
     }
   </style>
 </head>
@@ -106,48 +92,52 @@
       (including a survival-focused mode with persistent units and equipment).
     </p>
 
-    <!-- Hero image (click to enlarge) -->
+    <!-- Hero image -->
     <img
-      class="img heroimg zoomable"
+      class="img-click"
+      data-full="assets/hive/hive_hero.png.png"
       src="assets/hive/hive_hero.png.png"
       alt="The Hive gameplay screenshot"
-      loading="lazy"
+      style="width:100%; border:1px solid #ddd; border-radius:12px; margin-top:12px;"
     />
 
     <!-- Gallery -->
     <div class="grid" style="margin-top:12px;">
       <div class="card">
         <img
-          class="img zoomable"
+          class="img-click"
+          data-full="assets/hive/hive_inventory_tutorial.png.png"
           src="assets/hive/hive_inventory_tutorial.png.png"
           alt="The Hive inventory/equipment UI and tutorial overlay"
-          loading="lazy"
+          style="width:100%; border:1px solid #ddd; border-radius:12px;"
         />
         <p class="small muted" style="margin:10px 0 0;">Inventory/equipment UI + tutorial flow.</p>
       </div>
 
       <div class="card">
         <img
-          class="img zoomable"
+          class="img-click"
+          data-full="assets/hive/hive_tooltip_closeup.png.png"
           src="assets/hive/hive_tooltip_closeup.png.png"
           alt="The Hive tooltip UI close-up"
-          loading="lazy"
+          style="width:100%; border:1px solid #ddd; border-radius:12px;"
         />
         <p class="small muted" style="margin:10px 0 0;">Tooltip formatting and stat display.</p>
       </div>
 
       <div class="card">
         <img
-          class="img zoomable"
+          class="img-click"
+          data-full="assets/hive/hive_group_ui.png.png"
           src="assets/hive/hive_group_ui.png.png"
           alt="The Hive control group UI example"
-          loading="lazy"
+          style="width:100%; border:1px solid #ddd; border-radius:12px;"
         />
         <p class="small muted" style="margin:10px 0 0;">Control groups and selection UI improvements.</p>
       </div>
     </div>
 
-    <div style="margin-top:10px;">
+    <div style="margin-top:6px;">
       <span class="tag">Unity</span>
       <span class="tag">C#</span>
       <span class="tag">Live Ops</span>
@@ -245,44 +235,54 @@
     <a href="https://store.steampowered.com/app/325730/The_Hive/" target="_blank" rel="noopener">Steam Page</a>
   </div>
 
-  <!-- Lightbox -->
+  <!-- Lightbox overlay -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
-    <img id="lightboxImg" alt="">
-    <div class="hint">Click outside the image or press Esc to close</div>
+    <div class="lightbox-inner">
+      <img id="lightboxImg" alt="" />
+    </div>
+    <div class="lightbox-hint">Click outside the image (or press Esc) to close</div>
   </div>
 
   <script>
-    const lb = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lightboxImg');
+    (function () {
+      const lb = document.getElementById("lightbox");
+      const lbImg = document.getElementById("lightboxImg");
 
-    function openLightbox(src, alt) {
-      lbImg.src = src;
-      lbImg.alt = alt || '';
-      lb.classList.add('open');
-      lb.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
+      function openLightbox(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt || "";
+        lb.classList.add("is-open");
+        lb.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
 
-    function closeLightbox() {
-      lb.classList.remove('open');
-      lb.setAttribute('aria-hidden', 'true');
-      lbImg.src = '';
-      document.body.style.overflow = '';
-    }
+      function closeLightbox() {
+        lb.classList.remove("is-open");
+        lb.setAttribute("aria-hidden", "true");
+        lbImg.src = "";
+        document.body.style.overflow = "";
+      }
 
-    document.querySelectorAll('img.zoomable').forEach(img => {
-      img.addEventListener('click', () => openLightbox(img.src, img.alt));
-    });
+      document.querySelectorAll("img.img-click").forEach(img => {
+        img.addEventListener("click", () => {
+          const full = img.getAttribute("data-full") || img.src;
+          openLightbox(full, img.alt);
+        });
+      });
 
-    // Click outside image closes
-    lb.addEventListener('click', (e) => {
-      if (e.target === lb) closeLightbox();
-    });
+      // Close by clicking outside image
+      lb.addEventListener("click", (e) => {
+        if (e.target === lb) closeLightbox();
+      });
 
-    // Esc closes
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && lb.classList.contains('open')) closeLightbox();
-    });
+      // Prevent closing when clicking the image itself
+      lbImg.addEventListener("click", (e) => e.stopPropagation());
+
+      // Close on ESC
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && lb.classList.contains("is-open")) closeLightbox();
+      });
+    })();
   </script>
 
 </body>
