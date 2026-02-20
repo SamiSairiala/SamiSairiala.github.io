@@ -8,79 +8,71 @@
     body { font-family: Arial, sans-serif; max-width: 980px; margin: 40px auto; padding: 0 16px; line-height: 1.55; }
     a { text-decoration: none; }
     a:hover { text-decoration: underline; }
-
     .top { display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; }
     .links a { margin-right: 12px; }
     .hero { border:1px solid #ddd; border-radius:16px; padding:18px; margin-top:18px; }
     .meta { font-size: 13px; color:#444; margin: 6px 0 0; }
-
     .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 16px; }
-    .card { border:1px solid #ddd; border-radius:14px; padding:16px; background:#fff; }
-
+    .card { border:1px solid #ddd; border-radius:14px; padding:16px; }
     h1,h2,h3 { margin: 0 0 10px; }
     h2 { margin-top: 26px; }
-
     ul { margin: 8px 0 0 18px; padding: 0; }
     .tag { display:inline-block; border:1px solid #ddd; border-radius:999px; padding:4px 10px; margin:8px 6px 0 0; font-size:12px; }
-
     .small { font-size: 13px; color:#333; }
     .muted { color:#555; }
-
     .btnrow a { display:inline-block; margin: 10px 10px 0 0; font-size: 13px; }
-
     .callout { background:#f6f7f8; border:1px solid #e2e3e5; border-radius:14px; padding:14px; margin-top:12px; }
 
-    /* Images */
-    .img {
-      width:100%;
-      border:1px solid #ddd;
-      border-radius:12px;
-      display:block;
-      background:#fff;
+    /* Clickable images */
+    .img-click {
       cursor: zoom-in;
-      transition: transform .08s ease;
+      transition: transform 120ms ease;
     }
-    .img:hover { transform: translateY(-1px); }
+    .img-click:hover { transform: translateY(-1px); }
 
     /* Hero image sizing (smaller) */
     .heroimg {
-      max-height: 360px;
-      object-fit: cover;
+      width: 100%;
+      max-height: 380px;        /* adjust this shit if still too big idk anymore */
+      object-fit: cover;        /* crop nicely */
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      margin-top: 12px;
     }
 
-    /* Lightbox overlay */
+    /* Lightbox */
     .lightbox {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.72);
+      background: rgba(0,0,0,0.82);
       display: none;
       align-items: center;
       justify-content: center;
       padding: 24px;
       z-index: 9999;
     }
-    .lightbox.open { display: flex; }
-    .lightbox img {
-      max-width: min(1100px, 96vw);
-      max-height: 92vh;
+    .lightbox.is-open { display: flex; }
+    .lightbox-inner { max-width: min(1200px, 95vw); max-height: 90vh; }
+    .lightbox-inner img {
+      width: 100%;
+      height: auto;
+      max-height: 90vh;
+      object-fit: contain;
       border-radius: 12px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 18px 70px rgba(0,0,0,0.45);
       cursor: default;
-      background:#111;
+      background: rgba(255,255,255,0.02);
     }
-    .lightbox .hint {
+    .lightbox-hint{
       position: fixed;
-      bottom: 18px;
+      bottom: 16px;
       left: 50%;
       transform: translateX(-50%);
-      color: rgba(255,255,255,0.85);
+      color: rgba(255,255,255,0.8);
       font-size: 12px;
+      font-family: Arial, sans-serif;
       user-select: none;
-      text-align: center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(0,0,0,0.35);
-      border: 1px solid rgba(255,255,255,0.12);
     }
   </style>
 </head>
@@ -95,7 +87,6 @@
       <a href="index.html">← Back to Portfolio</a>
       <a href="mailto:sami.sairiala@gmail.com">Email</a>
       <a href="https://github.com/SamiSairiala" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/sami-sairiala-2bb521192/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
 
@@ -106,58 +97,67 @@
       building features that connect combat, progression, and exploration (combat flow, persistence, equipment effects, and map UI).
     </p>
 
-    <!-- Hero image (smaller + click to enlarge) -->
+    <p class="small" style="margin:10px 0 0;">
+      <b>Thesis (combat system):</b>
+      <a href="https://urn.fi/URN:NBN:fi:amk-2025121436045" target="_blank" rel="noopener">Read here (Thesis is only in Finnish but the abstract is in english.)</a>
+    </p>
+
+    
     <img
-      class="img heroimg zoomable"
+      class="heroimg img-click"
+      data-full="assets/abyssian/TurnOrder.jpg"
       src="assets/abyssian/TurnOrder.jpg"
       alt="Abyssian combat UI showing turn order and action menu"
-      loading="lazy"
     />
 
-    <!-- Gallery -->
+    
     <div class="grid" style="margin-top:12px;">
       <div class="card">
         <img
-          class="img zoomable"
+          class="img-click"
+          data-full="assets/abyssian/Token%20Stack.jpg"
           src="assets/abyssian/Token%20Stack.jpg"
           alt="Abyssian token/status stacking example"
-          loading="lazy"
+          style="width:100%; border:1px solid #ddd; border-radius:12px;"
         />
         <p class="small muted" style="margin:10px 0 0;">Token/status effects and stacking rules.</p>
       </div>
 
       <div class="card">
         <img
-          class="img zoomable"
+          class="img-click"
+          data-full="assets/abyssian/Tokens%20Final.jpg"
           src="assets/abyssian/Tokens%20Final.jpg"
           alt="Abyssian combat state showing tokens"
-          loading="lazy"
+          style="width:100%; border:1px solid #ddd; border-radius:12px;"
         />
         <p class="small muted" style="margin:10px 0 0;">Combat readability via consistent token UI.</p>
       </div>
 
       <div class="card">
         <img
-          class="img zoomable"
+          class="img-click"
+          data-full="assets/abyssian/LevelUpN%C3%A4kym%C3%A4.jpg"
           src="assets/abyssian/LevelUpN%C3%A4kym%C3%A4.jpg"
           alt="Abyssian level-up / stat upgrade screen"
-          loading="lazy"
+          style="width:100%; border:1px solid #ddd; border-radius:12px;"
         />
         <p class="small muted" style="margin:10px 0 0;">Level-up/stat upgrade UI and previewed effects.</p>
       </div>
 
       <div class="card">
         <img
-          class="img zoomable"
+          class="img-click"
+          data-full="assets/abyssian/EnemyNames.jpg"
           src="assets/abyssian/EnemyNames.jpg"
           alt="Abyssian combat with enemy names and UI"
-          loading="lazy"
+          style="width:100%; border:1px solid #ddd; border-radius:12px;"
         />
         <p class="small muted" style="margin:10px 0 0;">Combat UI and encounter feedback.</p>
       </div>
     </div>
 
-    <div style="margin-top:10px;">
+    <div style="margin-top:6px;">
       <span class="tag">Unity</span>
       <span class="tag">C#</span>
       <span class="tag">Gameplay Systems</span>
@@ -288,42 +288,51 @@
     <a href="index.html">← Back to Portfolio</a>
   </div>
 
-  <!-- Lightbox -->
+  
   <div class="lightbox" id="lightbox" aria-hidden="true">
-    <img id="lightboxImg" alt="">
-    <div class="hint">Click outside the image or press Esc to close</div>
+    <div class="lightbox-inner">
+      <img id="lightboxImg" alt="" />
+    </div>
+    <div class="lightbox-hint">Click outside the image (or press Esc) to close</div>
   </div>
 
   <script>
-    const lb = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lightboxImg');
+    (function () {
+      const lb = document.getElementById("lightbox");
+      const lbImg = document.getElementById("lightboxImg");
 
-    function openLightbox(src, alt) {
-      lbImg.src = src;
-      lbImg.alt = alt || '';
-      lb.classList.add('open');
-      lb.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
+      function openLightbox(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt || "";
+        lb.classList.add("is-open");
+        lb.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
 
-    function closeLightbox() {
-      lb.classList.remove('open');
-      lb.setAttribute('aria-hidden', 'true');
-      lbImg.src = '';
-      document.body.style.overflow = '';
-    }
+      function closeLightbox() {
+        lb.classList.remove("is-open");
+        lb.setAttribute("aria-hidden", "true");
+        lbImg.src = "";
+        document.body.style.overflow = "";
+      }
 
-    document.querySelectorAll('img.zoomable').forEach(img => {
-      img.addEventListener('click', () => openLightbox(img.src, img.alt));
-    });
+      document.querySelectorAll("img.img-click").forEach(img => {
+        img.addEventListener("click", () => {
+          const full = img.getAttribute("data-full") || img.src;
+          openLightbox(full, img.alt);
+        });
+      });
 
-    lb.addEventListener('click', (e) => {
-      if (e.target === lb) closeLightbox();
-    });
+      lb.addEventListener("click", (e) => {
+        if (e.target === lb) closeLightbox();
+      });
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && lb.classList.contains('open')) closeLightbox();
-    });
+      lbImg.addEventListener("click", (e) => e.stopPropagation());
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && lb.classList.contains("is-open")) closeLightbox();
+      });
+    })();
   </script>
 
 </body>
