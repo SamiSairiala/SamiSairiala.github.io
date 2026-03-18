@@ -6,14 +6,22 @@
   <title>The Hive | Sami Sairiala</title>
   <style>
     body { font-family: Arial, sans-serif; max-width: 980px; margin: 40px auto; padding: 0 16px; line-height: 1.55; }
-    a { text-decoration: none; }
+    a {
+      text-decoration: none;
+      transition: color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+    }
     a:hover { text-decoration: underline; }
+    a:focus-visible {
+      outline: 3px solid rgba(79,70,229,0.22);
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
     .top { display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; }
     .links a { margin-right: 12px; }
     .hero { border:1px solid #ddd; border-radius:16px; padding:18px; margin-top:18px; }
     .meta { font-size: 13px; color:#444; margin: 6px 0 0; }
-    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 16px; }
-    .card { border:1px solid #ddd; border-radius:14px; padding:16px; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; margin-top: 18px; }
+    .card { border:1px solid #ddd; border-radius:14px; padding:18px; }
     h1,h2,h3 { margin: 0 0 10px; }
     h2 { margin-top: 26px; }
     ul { margin: 8px 0 0 18px; padding: 0; }
@@ -21,6 +29,7 @@
     .small { font-size: 13px; color:#333; }
     .muted { color:#555; }
     .btnrow a { display:inline-block; margin: 10px 10px 0 0; font-size: 13px; }
+    .btnrow a:hover { text-decoration:none; transform: translateY(-1px); }
 
     /* Clickable images */
     .img-click {
@@ -28,6 +37,11 @@
       transition: transform 120ms ease;
     }
     .img-click:hover { transform: translateY(-1px); }
+    .img-click:focus-visible {
+      outline: 3px solid rgba(79,70,229,0.24);
+      outline-offset: 4px;
+      border-radius: 12px;
+    }
 
     /* Lightbox */
     .lightbox {
@@ -88,7 +102,7 @@
     <p class="small" style="margin:0;">
       <b>The Hive</b> is a strategy game on Steam that shipped before I joined the team.
       I worked on <b>post-release patching/hotfixes</b>, <b>save/load reliability</b>, and <b>DLC feature work</b>
-      (including a survival-focused mode with persistent units and equipment).
+      for a shipped Steam title, including a survival-focused mode with persistent units and equipment.
     </p>
 
     
@@ -97,6 +111,7 @@
       data-full="assets/hive/hive_hero.png.png"
       src="assets/hive/hive_hero.png.png"
       alt="The Hive gameplay screenshot"
+      decoding="async"
       style="width:100%; border:1px solid #ddd; border-radius:12px; margin-top:12px;"
     />
 
@@ -108,6 +123,8 @@
           data-full="assets/hive/hive_inventory_tutorial.png.png"
           src="assets/hive/hive_inventory_tutorial.png.png"
           alt="The Hive inventory/equipment UI and tutorial overlay"
+          loading="lazy"
+          decoding="async"
           style="width:100%; border:1px solid #ddd; border-radius:12px;"
         />
         <p class="small muted" style="margin:10px 0 0;">Inventory/equipment UI + tutorial flow.</p>
@@ -119,6 +136,8 @@
           data-full="assets/hive/hive_tooltip_closeup.png.png"
           src="assets/hive/hive_tooltip_closeup.png.png"
           alt="The Hive tooltip UI close-up"
+          loading="lazy"
+          decoding="async"
           style="width:100%; border:1px solid #ddd; border-radius:12px;"
         />
         <p class="small muted" style="margin:10px 0 0;">Tooltip formatting and stat display.</p>
@@ -130,6 +149,8 @@
           data-full="assets/hive/hive_group_ui.png.png"
           src="assets/hive/hive_group_ui.png.png"
           alt="The Hive control group UI example"
+          loading="lazy"
+          decoding="async"
           style="width:100%; border:1px solid #ddd; border-radius:12px;"
         />
         <p class="small muted" style="margin:10px 0 0;">Control groups and selection UI improvements.</p>
@@ -152,8 +173,8 @@
     <div class="card">
       <h3>Autosave & save/load reliability</h3>
       <ul>
-        <li>Implemented autosave with anti-spam and cutscene safety checks</li>
-        <li>Integrated autosave triggers into cutscenes and objective completion</li>
+        <li>Implemented autosave with anti-spam and cutscene safety checks to reduce interruption during live play</li>
+        <li>Integrated autosave triggers into cutscenes and objective completion so progression saved at natural milestones</li>
         <li>Fixed save/load issues (e.g., starter units not saving, disappearing units, difficulty not restoring correctly)</li>
         <li>Updated save/load UI to clearly separate manual saves, quick saves, and auto saves</li>
       </ul>
@@ -162,8 +183,8 @@
     <div class="card">
       <h3>DLC Survival mode persistence</h3>
       <ul>
-        <li>Implemented DLC Survival mode features where units persist between levels</li>
-        <li>Persisted unit equipment and inventory state across levels and sessions</li>
+        <li>Implemented DLC Survival mode features where units persist between levels, increasing the mode’s long-term progression scope</li>
+        <li>Persisted unit equipment and inventory state across levels and sessions for consistent campaign continuity</li>
         <li>Ensured mode rules integrate cleanly with existing save/load flows</li>
       </ul>
     </div>
@@ -171,7 +192,7 @@
     <div class="card">
       <h3>Unit selection + control groups UI</h3>
       <ul>
-        <li>Added Group Selection UI and improved control group HUD behavior</li>
+        <li>Added Group Selection UI and improved control group HUD behavior to make multi-unit control easier to read</li>
         <li>Fixed edge cases in rapid double-click selection (unit isolation vs group selection)</li>
         <li>Improved group counts and live updates (including resurrected units)</li>
         <li>Added inventory button pulse when new items are received</li>
@@ -184,7 +205,7 @@
         <li>Implemented unit tooltip templates and formatting (token replacement like {DMG}, {HP}, {DEF}, etc.)</li>
         <li>Exposed attack/defence tooltip messages on units and wired into HUD</li>
         <li>Improved tooltip positioning: pivot adjustment + clamping within UI bounds</li>
-        <li>Added tooltip messages across inventory/resource UI for better player guidance</li>
+        <li>Added tooltip messages across inventory/resource UI for better player guidance and reduced guesswork</li>
       </ul>
     </div>
 

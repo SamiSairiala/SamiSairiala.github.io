@@ -35,13 +35,22 @@
     }
 
     /* Accent links */
-    a { color: var(--accent); text-decoration: none; }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 140ms ease, opacity 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+    }
     a:hover { text-decoration: underline; }
+    a:focus-visible {
+      outline: 3px solid rgba(79,70,229,0.22);
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
 
     .top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
     .links a { margin-right: 12px; }
 
-    .section { margin-top: 26px; }
+    .section { margin-top: 34px; }
 
     /* Colored/pill section headers */
     .section-title{
@@ -55,12 +64,12 @@
       letter-spacing: 0.2px;
     }
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; margin-top: 16px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 18px; margin-top: 18px; }
 
     .card {
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 16px;
+      padding: 18px;
       background: var(--cardbg);
       backdrop-filter: blur(3px);
       box-shadow: 0 6px 18px rgba(0,0,0,0.05);
@@ -81,6 +90,43 @@
     }
 
     .btnrow a { display:inline-block; margin: 10px 10px 0 0; font-size: 13px; }
+    .btnrow a:hover { text-decoration: none; transform: translateY(-1px); }
+
+    .hero-intro {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255,255,255,0.84));
+      box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+      margin-top: 18px;
+    }
+
+    .hero-intro h2 { margin: 10px 0 0; font-size: 28px; line-height: 1.15; }
+    .hero-lead { font-size: 15px; color: #222; max-width: 760px; margin: 12px 0 0; }
+    .cta-row { display:flex; flex-wrap:wrap; gap:10px; margin-top: 16px; }
+    .button-link {
+      display:inline-block;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.10);
+      background: rgba(255,255,255,0.9);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+    .button-link:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
+    .button-link:focus-visible {
+      outline: 3px solid rgba(79,70,229,0.24);
+      outline-offset: 3px;
+    }
+    .button-link.primary {
+      background: linear-gradient(90deg, rgba(79,70,229,0.16), rgba(6,182,212,0.16));
+    }
 
     .small { font-size: 13px; color: #333; }
 
@@ -93,13 +139,25 @@
   <div class="top">
     <div>
       <h1>Sami Sairiala</h1>
-      <p style="margin:6px 0 0;">Game Programmer (Unity/C#) — gameplay &amp; systems (combat, save/load, UI, maps)</p>
-      <p class="small" style="margin:4px 0 0; color:#444;">Open to relocation and remote roles.</p>
+      <p class="small" style="margin:6px 0 0; color:#444;">Open to relocation and remote roles.</p>
     </div>
     <div class="links">
       <a href="assets/Sami_Sairiala_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
       <a href="https://github.com/SamiSairiala" target="_blank" rel="noopener">GitHub</a>
       <a href="mailto:sami.sairiala@gmail.com">Email</a>
+    </div>
+  </div>
+
+  <div class="hero-intro">
+    <p class="meta" style="margin:0;">Unity/C# • Gameplay &amp; Systems Programming</p>
+    <h2>Unity Gameplay &amp; Systems Programmer building combat, save/load, AI, UI, and map systems.</h2>
+    <p class="hero-lead">
+      I build gameplay features and core systems for shipped and in-development games, with hands-on experience in turn-based combat, persistence/save-load, UI tooling, and live-project feature work.
+    </p>
+    <div class="cta-row">
+      <a class="button-link primary" href="#projects">View Projects</a>
+      <a class="button-link" href="assets/Sami_Sairiala_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+      <a class="button-link" href="https://github.com/SamiSairiala" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 
@@ -153,7 +211,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="projects">
     <h2 class="section-title">Featured Projects</h2>
     <p class="small" style="margin-top:0;">
       Shipped and notable work. Click “Details” for deeper breakdowns.
@@ -165,9 +223,9 @@
         <h3>Abyssian (Upcoming) — Lead Programmer</h3>
         <p class="meta">Skydome Entertainment • 2.5D RPG</p>
         <ul>
-          <li>Turn-based combat + token/status effect mechanics</li>
-          <li>Save/load &amp; persistence (slots + autosaves, scene/object state)</li>
-          <li>Equipment system (2 slots, keyword-driven effects) + minimap/world map UI</li>
+          <li>Built combat, progression, and exploration systems for an upcoming 2.5D JRPG</li>
+          <li>Implemented save/load &amp; persistence spanning slots/autosaves, scene/object state, inventory, party data, and progression</li>
+          <li>Developed equipment, token/status, minimap, and world map systems to support readable, expandable gameplay</li>
         </ul>
         <div>
           <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Combat</span><span class="tag">Save/Load</span><span class="tag">Balance</span>
@@ -182,9 +240,9 @@
         <h3>The Hive (Steam) — Programmer</h3>
         <p class="meta">Skydome Entertainment • Strategy game • Post-release + DLC</p>
         <ul>
-          <li>Post-release fixes and stability/UX improvements across gameplay and UI</li>
-          <li>DLC features + mechanics implementation and integration</li>
-          <li>Added QoL systems including autosaving and group selection UI</li>
+          <li>Worked on live patching, hotfixing, and DLC development for a shipped Steam strategy title</li>
+          <li>Implemented autosave flow integrated with cutscenes, objectives, and save/load UI clarity improvements</li>
+          <li>Added QoL features including control groups, tooltip improvements, and inventory/UI feedback systems</li>
         </ul>
         <div>
           <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Live Ops</span><span class="tag">UI</span>
@@ -247,9 +305,16 @@
   <div class="section">
     <h2 class="section-title">Contact</h2>
     <div class="card">
+      <p style="margin:0 0 10px;"><strong>I’m open to Unity, gameplay, and systems programming roles.</strong></p>
       <p class="small" style="margin:0;">
-        Email: <a href="mailto:sami.sairiala@gmail.com">sami.sairiala@gmail.com</a>
+        Based in Finland and open to relocation and remote opportunities. For roles, freelance work, or general contact, email
+        <a href="mailto:sami.sairiala@gmail.com">sami.sairiala@gmail.com</a>.
       </p>
+      <div class="cta-row">
+        <a class="button-link primary" href="mailto:sami.sairiala@gmail.com">Email Me</a>
+        <a class="button-link" href="assets/Sami_Sairiala_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+        <a class="button-link" href="https://github.com/SamiSairiala" target="_blank" rel="noopener">GitHub</a>
+      </div>
     </div>
   </div>
 
