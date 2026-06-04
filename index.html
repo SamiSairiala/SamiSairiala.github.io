@@ -12,9 +12,9 @@
       --cardbg: rgba(255,255,255,0.90);
 
       
-      --accent:#4f46e5;   /* indigo */
-      --accent2:#06b6d4;  /* cyan */
-      --accent3:#10b981;  /* green */
+      --accent:#7c3aed;   /* game-dev purple */
+      --accent2:#f97316;  /* Unreal/orange highlight */
+      --accent3:#06b6d4;  /* cyan/tech */
     }
 
     
@@ -27,10 +27,10 @@
       color: var(--text);
 
       background:
-        radial-gradient(1200px 600px at 10% -10%, rgba(79,70,229,0.18), transparent 60%),
-        radial-gradient(900px 600px at 100% 0%, rgba(6,182,212,0.14), transparent 55%),
-        radial-gradient(900px 600px at 0% 110%, rgba(16,185,129,0.10), transparent 60%),
-        #f6f7fb;
+        radial-gradient(1200px 620px at 8% -10%, rgba(124,58,237,0.16), transparent 60%),
+        radial-gradient(900px 620px at 102% 0%, rgba(249,115,22,0.13), transparent 56%),
+        radial-gradient(900px 620px at 0% 112%, rgba(6,182,212,0.11), transparent 60%),
+        linear-gradient(135deg, #f7f6fb 0%, #f5f7fb 46%, #f8f4ef 100%);
       background-attachment: fixed;
     }
 
@@ -58,7 +58,7 @@
       margin: 0 0 10px;
       padding: 6px 12px;
       border-radius: 999px;
-      background: linear-gradient(90deg, rgba(79,70,229,0.12), rgba(6,182,212,0.10));
+      background: linear-gradient(90deg, rgba(124,58,237,0.12), rgba(249,115,22,0.10), rgba(6,182,212,0.08));
       border: 1px solid rgba(0,0,0,0.08);
       font-size: 18px;
       letter-spacing: 0.2px;
@@ -125,7 +125,7 @@
       outline-offset: 3px;
     }
     .button-link.primary {
-      background: linear-gradient(90deg, rgba(79,70,229,0.16), rgba(6,182,212,0.16));
+      background: linear-gradient(90deg, rgba(124,58,237,0.16), rgba(249,115,22,0.14), rgba(6,182,212,0.12));
     }
 
     .small { font-size: 13px; color: #333; }
@@ -149,10 +149,10 @@
   </div>
 
   <div class="hero-intro">
-    <p class="meta" style="margin:0;">Game Programmer • Unity/C# • Unreal/C++</p>
-<h2>Game Programmer (Unity/C#) building gameplay and systems — combat, persistence, AI, UI, and tools.</h2>
+    <p class="meta" style="margin:0;">Game Programmer • Unity/C# • Unreal Engine/C++</p>
+    <h2>Game Programmer building gameplay and systems — combat, persistence, AI, UI, tools, and prototypes across Unity and Unreal.</h2>
     <p class="hero-lead">
-      I build gameplay features and core systems for shipped and in-development games, with hands-on experience in turn-based combat, persistence/save-load, UI tooling, and live-project feature work.
+      I build gameplay features and core systems for shipped and in-development games, with hands-on experience in turn-based combat, persistence/save-load, AI behavior, UI tooling, and live-project feature work.
     </p>
     <div class="cta-row">
       <a class="button-link primary" href="#projects">View Projects</a>
@@ -165,10 +165,10 @@
     <h2 class="section-title">Background</h2>
     <div class="card">
       <p class="small" style="margin:0;">
-        I’m a Unity/C# game programmer based in Finland. I worked at Skydome Entertainment (Feb 2024–Feb 2026)
-        on a live strategy title (The Hive) and an upcoming 2.5D JRPG (Abyssian). I enjoy building gameplay systems
-        like combat logic, persistence/save-load, UI tools, and map features. I graduated from TAMK (Tampere University
-        of Applied Sciences) in Dec 2025.
+        I’m a game programmer based in Finland, mainly experienced with Unity/C# and also building projects in Unreal Engine/C++.
+        I worked at Skydome Entertainment (Feb 2024–Feb 2026) on a live strategy title (The Hive) and an upcoming 2.5D JRPG
+        (Abyssian). I enjoy building gameplay systems like combat logic, persistence/save-load, AI behavior, UI tools, and map features.
+        I graduated from TAMK (Tampere University of Applied Sciences) in Dec 2025.
       </p>
     </div>
   </div>
@@ -215,7 +215,7 @@
   <div class="section" id="projects">
     <h2 class="section-title">Featured Projects</h2>
     <p class="small" style="margin-top:0;">
-      Shipped and notable work. Click “Details” for deeper breakdowns.
+      Shipped, notable, and work-in-progress projects. Click “Details” where available for deeper breakdowns.
     </p>
 
     <div class="grid">
@@ -252,6 +252,19 @@
           <a href="hive.html">Details</a>
           <a href="https://github.com/SamiSairiala/showcode/tree/main/Hive" target="_blank" rel="noopener">Code</a>
           <a href="https://store.steampowered.com/app/325730/The_Hive/" target="_blank" rel="noopener">Steam Page</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>UE5 Stealth Sandbox — Programmer <span class="tag">Work in Progress</span></h3>
+        <p class="meta">Personal Unreal Engine 5 project • Gameplay prototype</p>
+        <ul>
+          <li>Building a small stealth/action sandbox to practice Unreal gameplay architecture and C++/Blueprint workflows</li>
+          <li>Implementing player HUD, health/ammo UI, weapon equip flow, inventory inputs, and guard/AI behavior</li>
+          <li>Focused on readable systems that can grow into a polished Unreal portfolio project</li>
+        </ul>
+        <div>
+          <span class="tag">Unreal Engine 5</span><span class="tag">C++</span><span class="tag">Blueprints</span><span class="tag">AI</span><span class="tag">WIP</span>
         </div>
       </div>
 
@@ -306,7 +319,7 @@
   <div class="section">
     <h2 class="section-title">Contact</h2>
     <div class="card">
-      <p style="margin:0 0 10px;"><strong>I’m open to Unity, gameplay, and systems programming roles.</strong></p>
+      <p style="margin:0 0 10px;"><strong>I’m open to gameplay and systems programming roles, especially Unity/C# and Unreal/C++.</strong></p>
       <p class="small" style="margin:0;">
         Based in Finland and open to relocation and remote opportunities. For roles, freelance work, or general contact, email
         <a href="mailto:sami.sairiala@gmail.com">sami.sairiala@gmail.com</a>.
